@@ -45,4 +45,43 @@ describe('Thermostat test: ', function(){
     expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 
+  it('Has power saving mode on by default', function() {
+    expect(thermostat.powerSavingModeOn()).toBe(true);
+  });
+
+  it('Can switch Power Saving Mode off', function() {
+    thermostat.powerSavingModeOff();
+    expect(thermostat.powerSavingModeOn()).toBe(false);
+  });
+
+  it('Can switch Power Saving Mode back on after switching it off', function() {
+    thermostat.powerSavingModeOff();
+    expect(thermostat.powerSavingModeOn()).toBe(false);
+    thermostat.switchPowerSavingModeOn();
+    expect(thermostat.powerSavingModeOn()).toBe(true);
+  });
+
+  it('Maximum temperature 25 degress if power saving mode is on', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+
+    // this is a for loop block, to loop 6 times to increase the temperature
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
+  });
+
+  it('Maximum temperature 32 degress if power saving mode is off', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+
+    // this is a for loop block, to loop 13 times to increase the temperature
+    // first we need to switch PSM to off using powerSavingModeOff
+    thermostat.powerSavingModeOff();
+    for (var i = 0; i < 13; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(32);
+  });
 });

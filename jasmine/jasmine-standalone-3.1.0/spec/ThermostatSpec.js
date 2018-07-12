@@ -84,4 +84,14 @@ describe('Thermostat test: ', function(){
     }
     expect(thermostat.getCurrentTemperature()).toEqual(32);
   });
+
+  it('Resets the temperature back to 20 degrees', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    thermostat.reset();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
 });

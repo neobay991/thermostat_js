@@ -3,6 +3,28 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
 
+  // api request for city $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=63d1ac51575b09b11d1f8408f4f4ccd3&units=metric', function(data) {
+  //   $('#current-temperature').text(data.main.temp);
+  // });
+
+  // to load city dynamically, based on the user's selection.
+  // On the FE, there is a selector with pre-defined cities,
+  // and some JavaScript to detect the change and cocatenate to the api
+  $('#options-city').change(function() {
+    var city = $('#options-city').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=63d1ac51575b09b11d1f8408f4f4ccd3&units=metric', function(data) {
+      $('#current-temperature').text(data.main.temp)
+    });
+  });
+
+  // to load city dynamically, based on the user's selection.
+  // On the FE, there is a selector with pre-defined cities,
+  // and some JavaScript to insert the selecrted city
+  $('#options-city').change(function() {
+    var city = $('#options-city').val();
+      $('#current-city').text(city)
+  });
+
   $('#temp-up').on('click', function() {
     thermostat.up();
     updateTemperature();

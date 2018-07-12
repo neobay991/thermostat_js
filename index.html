@@ -9,10 +9,26 @@
   <link rel="stylesheet" type="text/css" href="styles/style.css">
   <title>Thermostat</title>
 </head>
-
 <body>
-  <h1 id="current_temp"></h2>
-  <h3>Thermostat Controls</h3>
+  <div>
+    <h2>Current temperature in <span id="current-city"></span>: <span id="current-temperature"></span></h2>
+    <select id="options-city">
+      <option value="london">London</option>
+      <option value="moscow">Moscow</option>
+      <option value="berlin">Berlin</option>
+      <option value="dubai">Dubai</option>
+      <option selected="newyork" value="newyork">New York</option>
+      <option value="paris">Paris</option>
+      <option value="tokyo">Tokyo</option>
+    </select>
+  </div>
+  <div>
+    <h1 id="current_temp"></h2>
+  </div>
+  <div>
+    <h3>Thermostat Controls</h3>
+  </div>
+  <div>
     <li>
       <button id="temp-up">+ Turn temperature Up</button>
     </li>
@@ -31,5 +47,6 @@
     <li>
       <button id="psm-off">Switch PSM off</button>
     </li>
+  </div>
 </body>
 </html>

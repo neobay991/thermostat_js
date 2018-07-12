@@ -19,4 +19,19 @@ describe('Thermostat test: ', function(){
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
+  it('Increase temperature with up function', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    thermostat.up(10);
+    expect(thermostat.getCurrentTemperature()).toEqual(30);
+  });
+
+  it('Decrease temperature with down function', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    thermostat.down(10);
+    expect(thermostat.getCurrentTemperature()).toEqual(10);
+  });
+
+
 });

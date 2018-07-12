@@ -3,6 +3,7 @@
 function Thermostat(){
   // this is a Constant - MINIMUM_TEMPERATURE
   this.MINIMUM_TEMPERATURE = 10;
+  this.MEDIUM_TEMPERATURE = 18;
   this.MAXIMUM_LIMIT_PSM_ON = 25;
   this.MAXIMUM_LIMIT_PSM_OFF = 32;
   this.temperature = 20;
@@ -71,4 +72,22 @@ Thermostat.prototype.isMaximumTemperature = function() {
 
 Thermostat.prototype.reset = function() {
   this.temperature = 20;
+};
+
+Thermostat.prototype.getCurrentEnergyUsuage = function() {
+  // if temp is 18 degrees
+  if (this.temperature < this.MEDIUM_TEMPERATURE) {
+    return 'low-usage';
+  }
+
+  if (this.temperature > this.MEDIUM_TEMPERATURE && this.temperature < this.MAXIMUM_LIMIT_PSM_ON) {
+    return 'medium-usage';
+  }
+    return 'high-usage';
+  // if (this.temperature === < 25 && > 17) {
+  //   return "medium-usage";
+  // }
+  //   return "high-usage";
+  // }
+
 };

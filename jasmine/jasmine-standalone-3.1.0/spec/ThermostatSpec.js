@@ -94,4 +94,31 @@ describe('Thermostat test: ', function(){
     thermostat.reset();
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
+
+  it('Current energy usuage to be low usuage ', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    for (var i = 0; i < 5; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.getCurrentEnergyUsuage()).toEqual("low-usage");
+  });
+
+  it('Current energy usuage to be medium usuage ', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    for (var i = 0; i < 3; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentEnergyUsuage()).toEqual("medium-usage");
+  });
+
+  it('Current energy usuage to be medium usuage ', function() {
+    // there are () after 'getCurrentTemperature' because we are
+    // testing what this method is returning
+    for (var i = 0; i < 10; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentEnergyUsuage()).toEqual("high-usage");
+  });
 });

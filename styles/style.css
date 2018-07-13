@@ -9,3 +9,27 @@
 .high-usage {
   color: red;
 }
+
+.temp-up {
+  background-color: #555555; /* Green */
+  color: #ffffff;
+}
+
+.temp-down {
+  background-color: #555555; /* Green */
+  color: #ffffff;
+}
+
+.temp-reset {
+  background-color: #4CAF50; /* Green */
+}
+
+.psm-on {
+  background-color: #008CBA; /* Green */
+  color: #ffffff;
+}
+
+.psm-off {
+  background-color: #008CBA; /* Green */
+  color: #ffffff;
+}
